@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>CRM Data Customer </title>
+    <title>CRM Edit Customer</title>
     <meta name="description" content="Ela Admin - HTML5 Admin Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -205,53 +205,27 @@
             <div class="animated fadeIn">
                 <!-- Widgets  -->
                 <div class="col-lg-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <strong class="card-title">Data Customer</strong>
-                            </div>
-                            <div class="card-body">
-                                <button class="btn" style="margin-bottom: 15px"><?php echo anchor('crud/tambah_cust/', 'Tambah'); ?></button>
-                                <button class="btn" style="margin-bottom: 15px"><?php echo anchor('crud/export/', 'Export to Excel'); ?></button>
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                          <th scope="col">#</th>
-                                          <th scope="col">ID Customer</th>
-                                          <th scope="col">Nama</th>
-                                          <th scope="col">Email</th>
-                                          <th scope="col">No. Telp</th>
-                                          <th scope="col">Username</th>
-                                          <th scope="col">Password</th>
-                                          <th scope="col">Aksi</th>
-                                      </tr>
-                                  </thead>
-                                  <tbody>
-                                    <?php
-                                     $no = 1;
-                                     foreach($data as $d){
-                                     ?>
-                                    <tr>
-                                        <th scope="row"><?php echo $no++ ?></th>
-                                        <td><?php echo $d->id_customer; ?></td>
-                                        <td><?php echo $d->nama; ?></td>
-                                        <td><?php echo $d->email; ?></td>
-                                        <td><?php echo $d->no_telp; ?></td>
-                                        <td><?php echo $d->username; ?></td>
-                                        <td><?php echo $d->password; ?></td>
-                                        <td>
-                                          <a href="<?php echo base_url().'crud/edit_cust/'.$d->id_customer ?>"><i class="menu-icon ti-pencil"></i></a> |
-                                          <a href="<?php echo base_url().'crud/hapus_cust/'.$d->id_customer; ?>"><i class="menu-icon ti-trash"></i></a>
-                                         </td>
-                                    </tr>
-                                    <?php
-                                     }
-                                    ?>
-                                </tbody>
-                            </table>
+                 <div class="card">
+                          <div class="card-header">
+                            <strong>Edit</strong> Customer
+                        </div>
+                        <div class="card-body card-block">
+                            <?php foreach($customer as $c) { ?>
+                            <form action="<?php echo base_url().'crud/update_customer'; ?>" method="post" class="">
+                                <div class="form-group"><label for="nama" class=" form-control-label">ID</label><input type="text" id="id_customer" name="id_customer" placeholder="Masukkan Nama.." class="form-control" value="<?php echo $c->id_customer ?>" readonly="true"><span class="help-block">Please enter your name</span></div>
+                                <div class="form-group"><label for="nama" class=" form-control-label">Nama</label><input type="text" id="nama" name="nama" placeholder="Masukkan Nama.." class="form-control" value="<?php echo $c->nama ?>"><span class="help-block">Please enter your name</span></div>
+                                <div class="form-group"><label for="email" class=" form-control-label">Email</label><input type="text" id="email" name="email" placeholder="Masukkan email.." class="form-control" value="<?php echo $c->email ?>"><span class="help-block">Please enter your email</span></div>
+                                <div class="form-group"><label for="notelp" class=" form-control-label">No Telp</label><input type="text" id="no_telp" name="no_telp" placeholder="Masukkan no telp.." class="form-control" value="<?php echo $c->no_telp ?>"><span class="help-block">Please enter your number</span></div>
+                                <div class="form-group"><label for="username" class=" form-control-label">Username</label><input type="text" id="username" name="username" placeholder="Masukkan username.." class="form-control" value="<?php echo $c->username ?>"><span class="help-block">Please enter your username</span></div>
+                                <div class="form-group"><label for="password" class=" form-control-label">Password</label><input type="password" id="password" name="password" placeholder="Enter Password.." class="form-control" value="<?php echo $c->password ?>"><span class="help-block">Please enter your password</span></div>
+                                <input type="submit" class="btn btn-primary btn-sm" value="Submit">
+                            </form>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
             <!-- .animated -->
         </div>
         <!-- /.content -->
