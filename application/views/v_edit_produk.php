@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>CRM Data Customer </title>
+    <title>CRM Edit Produk</title>
     <meta name="description" content="Ela Admin - HTML5 Admin Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -78,10 +78,10 @@
                     <li>
                         <a href="<?php echo base_url().'crud/data_cust/'; ?>"> <i class="menu-icon ti-crown"></i>Customer </a>                        
                     </li>
-                    <li class="active">
+                    <li>
                         <a href="<?php echo base_url().'crud/data_karyawan/'; ?>"> <i class="menu-icon ti-user"></i>Karyawan </a>                        
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="<?php echo base_url().'crud/data_produk/'; ?>"> <i class="menu-icon ti-package"></i>Produk </a>                       
                     </li>
                     <li>
@@ -205,55 +205,26 @@
             <div class="animated fadeIn">
                 <!-- Widgets  -->
                 <div class="col-lg-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <strong class="card-title">Data Karyawan</strong>
-                            </div>
-                            <div class="card-body">
-                                <button class="btn" style="margin-bottom: 15px"><?php echo anchor('crud/tambah_karyawan/', 'Tambah'); ?></button>
-                                <button class="btn" style="margin-bottom: 15px"><?php echo anchor('crud/export_karyawan/', 'Export to Excel'); ?></button>
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                          <th scope="col">#</th>
-                                          <th scope="col">ID Karyawan</th>
-                                          <th scope="col">Nama</th>
-                                          <th scope="col">Email</th>
-                                          <th scope="col">No. Telp</th>
-                                          <th scope="col">Alamat</th>
-                                          <th scope="col">Username</th>
-                                          <th scope="col">Password</th>
-                                          <th scope="col">Aksi</th>
-                                      </tr>
-                                  </thead>
-                                  <tbody>
-                                    <?php
-                                     $no = 1;
-                                     foreach($data as $d){
-                                     ?>
-                                    <tr>
-                                        <th scope="row"><?php echo $no++ ?></th>
-                                        <td><?php echo $d->id_karyawan; ?></td>
-                                        <td><?php echo $d->nama; ?></td>
-                                        <td><?php echo $d->email; ?></td>
-                                        <td><?php echo $d->no_telp; ?></td>
-                                        <td><?php echo $d->alamat; ?></td>
-                                        <td><?php echo $d->username; ?></td>
-                                        <td><?php echo $d->password; ?></td>
-                                        <td>
-                                          <a href="<?php echo base_url().'crud/edit_karyawan/'.$d->id_karyawan ?>"><i class="menu-icon ti-pencil"></i></a> |
-                                          <a href="<?php echo base_url().'crud/hapus_karyawan/'.$d->id_karyawan; ?>"><i class="menu-icon ti-trash"></i></a>
-                                         </td>
-                                    </tr>
-                                    <?php
-                                     }
-                                    ?>
-                                </tbody>
-                            </table>
+                 <div class="card">
+                          <div class="card-header">
+                            <strong>Edit</strong> Produk
+                        </div>
+                        <div class="card-body card-block">
+                            <?php foreach($produk as $c) { ?>
+                            <form action="<?php echo base_url().'crud/update_produk'; ?>" method="post" class="">
+                                <div class="form-group"><label for="id_produk" class=" form-control-label">ID</label><input type="text" id="id_produk" name="id_produk" placeholder="Masukkan ID.." class="form-control" value="<?php echo $c->id_produk ?>" readonly="true"><span class="help-block">Please enter Product's ID</span></div>
+                                <div class="form-group"><label for="nama_produk" class=" form-control-label">Nama</label><input type="text" id="nama_produk" name="nama_produk" placeholder="Masukkan Nama Produk.." class="form-control" value="<?php echo $c->nama_produk ?>"><span class="help-block">Please enter Product's Name</span></div>
+                                <div class="form-group"><label for="jenis" class=" form-control-label">Jenis</label><input type="text" id="jenis" name="jenis" placeholder="Masukkan Jenis.." class="form-control" value="<?php echo $c->jenis ?>"><span class="help-block">Please enter Product's Type</span></div>
+                                <div class="form-group"><label for="stok" class=" form-control-label">Stok</label><input type="text" id="stok" name="stok" placeholder="Masukkan Jumlah Stok.." class="form-control" value="<?php echo $c->stok ?>"><span class="help-block">Please enter Product's Quantity</span></div>
+                                <div class="form-group"><label for="harga" class=" form-control-label">Harga</label><input type="text" id="harga" name="harga" placeholder="Masukkan Harga.." class="form-control" value="<?php echo $c->harga ?>"><span class="help-block">Please enter Product's Price</span></div>
+                                <input type="submit" class="btn btn-primary btn-sm" value="Submit">
+                            </form>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
             <!-- .animated -->
         </div>
         <!-- /.content -->

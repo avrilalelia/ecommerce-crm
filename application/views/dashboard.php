@@ -80,7 +80,6 @@
                         <a href="<?php echo base_url().'crud/data_karyawan/'; ?>"> <i class="menu-icon ti-user"></i>Karyawan </a>
                         <a href="<?php echo base_url().'crud/data_produk/'; ?>"> <i class="menu-icon ti-package"></i>Produk </a>
                         <a href="<?php echo base_url().'crud/data_order/'; ?>"> <i class="menu-icon ti-email"></i>Order </a>
-                        <a href="<?php echo base_url('login/logout'); ?>"> <i class="menu-icon ti-shift-left"></i>Logout</a>
                     </li>
                 </ul>
             </div><!-- /.navbar-collapse -->
@@ -198,7 +197,6 @@
         <div class="content">
             <!-- Animated -->
             <div class="animated fadeIn">
-                <h2 style="margin-bottom: 15px">Hai, <?php echo $this->session->userdata("nama"); ?></h2>
                 <!-- Widgets  -->
                 <div class="row">
                     <div class="col-lg-3 col-md-6">

@@ -211,7 +211,7 @@
                             </div>
                             <div class="card-body">
                                 <button class="btn" style="margin-bottom: 15px"><?php echo anchor('crud/tambah_cust/', 'Tambah'); ?></button>
-                                <button class="btn" style="margin-bottom: 15px"><?php echo anchor('crud/export/', 'Export to Excel'); ?></button>
+                                <button class="btn" style="margin-bottom: 15px"><?php echo anchor('crud/export_cust/', 'Export to Excel'); ?></button>
                                 <table class="table">
                                     <thead>
                                         <tr>
